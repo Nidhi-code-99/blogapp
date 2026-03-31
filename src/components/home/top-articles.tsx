@@ -20,11 +20,12 @@ export async function TopArticles() {
         },
       },
     },
+    take: 3, // Limit to 3 directly in the database query
   });
 
   return (
     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {articles.slice(0, 3).map((article) => (
+      {articles.map((article) => (
         <Card
           key={article.id}
           className={cn(
